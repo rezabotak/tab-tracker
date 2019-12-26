@@ -1,14 +1,25 @@
 <template>
-  <v-app>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/register">Register</router-link>
-    </div>
-    <v-content>
-      <router-view />
-    </v-content>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <PageHeader />
+      <v-content>
+        <v-container class="mt-5">
+          <router-view />
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
 </template>
+
+<script>
+import PageHeader from "@/components/Header";
+export default {
+  name: "app",
+  components: {
+    PageHeader
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -17,18 +28,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
