@@ -1,8 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Register from "../views/Register.vue";
-import Login from "../views/Login.vue";
+import Home from "@/views/Home.vue";
+import Register from "@/views/Register.vue";
+import Login from "@/views/Login.vue";
+import Songs from "@/components/Songs.vue";
+import CreateSong from "@/components/CreateSong.vue";
+import ViewSong from "@/components/ViewSong.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +24,21 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
+  },
+  {
+    path: "/songs",
+    name: "songs",
+    component: Songs
+  },
+  {
+    path: "/songs/create",
+    name: "songs-create",
+    component: CreateSong
+  },
+  {
+    path: "/songs/:songId",
+    name: "song",
+    component: ViewSong
   }
 ];
 

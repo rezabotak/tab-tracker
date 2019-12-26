@@ -5,20 +5,24 @@
         <router-link to="/">TabTracker</router-link>
       </v-toolbar-title>
 
+      <v-toolbar-items>
+        <v-btn text router to="songs">
+          Browse
+        </v-btn>
+      </v-toolbar-items>
+
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <!-- <router-link to="register">
-          <v-btn text>
-            SIGN UP
-          </v-btn>
-        </router-link> -->
-        <v-btn text router to="login" v-if="!$store.state.isUserLoggedIn"
-          >Login</v-btn
-        >
-        <v-btn text router to="register" v-if="!$store.state.isUserLoggedIn"
-          >Sign Up</v-btn
-        >
+        <v-btn text router to="login" v-if="!$store.state.isUserLoggedIn">
+          Login
+        </v-btn>
+        <v-btn text router to="register" v-if="!$store.state.isUserLoggedIn">
+          Sign Up
+        </v-btn>
+        <v-btn text @click="logout" to="/" v-if="$store.state.isUserLoggedIn">
+          Logout
+        </v-btn>
       </v-toolbar-items>
     </v-app-bar>
   </div>
@@ -26,7 +30,13 @@
 
 <script>
 export default {
-  name: "PageHeader"
+  name: "PageHeader",
+  methods: {
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+    }
+  }
 };
 </script>
 
