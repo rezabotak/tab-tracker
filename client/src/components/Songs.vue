@@ -20,8 +20,8 @@
           <v-layout>
             <v-flex xs6>
               <div class="song-title">{{ song.title }}</div>
-              <div class="song-title">{{ song.artist }}</div>
-              <div class="song-title">{{ song.genre }}</div>
+              <div class="song-artist">{{ song.artist }}</div>
+              <div class="song-genre">{{ song.genre }}</div>
               <v-btn
                 dark
                 class="cyan"
@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .song {
-  padding: 30px;
+  padding: 20px;
   height: 330px;
   overflow: hidden;
 }
