@@ -6,7 +6,7 @@
       </v-toolbar-title>
 
       <v-toolbar-items>
-        <v-btn text router to="songs">
+        <v-btn text router :to="{ name: 'songs' }">
           Browse
         </v-btn>
       </v-toolbar-items>
