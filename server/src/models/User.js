@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 
 // eslint-disable-next-line no-unused-vars
 function hashPassword(user, options) {
-    const SALT_FACTOR = 8
+    const SALT_FACTOR = 10
     var salt = bcrypt.genSaltSync(SALT_FACTOR);
     var hash = bcrypt.hashSync(user.password, salt);
 
@@ -13,6 +13,7 @@ function hashPassword(user, options) {
 
     return user.setDataValue('password', hash)
 }
+
 // make model
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
@@ -25,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         hooks: {
             beforeCreate: hashPassword,
             beforeUpdate: hashPassword,
-            beforeSave: hashPassword
+            // beforeSave: hashPassword
         }
     })
 

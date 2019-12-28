@@ -14,10 +14,10 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn text router to="login" v-if="!$store.state.isUserLoggedIn">
+        <v-btn text router to="/login" v-if="!$store.state.isUserLoggedIn">
           Login
         </v-btn>
-        <v-btn text router to="register" v-if="!$store.state.isUserLoggedIn">
+        <v-btn text router to="/register" v-if="!$store.state.isUserLoggedIn">
           Sign Up
         </v-btn>
         <v-btn text @click="logout" to="/" v-if="$store.state.isUserLoggedIn">
