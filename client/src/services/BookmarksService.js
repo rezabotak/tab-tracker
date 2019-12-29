@@ -11,5 +11,10 @@ export default {
   },
   delete(bookmarkId) {
     return Api().delete(`bookmarks/${bookmarkId}`);
+  },
+  bookmark(bookmark) {
+    return Api().get("bookmark", {
+      params: bookmark
+    });
   }
 };

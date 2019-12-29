@@ -51,7 +51,7 @@ import BookmarksService from "@/services/BookmarksService";
 export default {
   props: ["song"],
   computed: {
-    ...mapState(["isUserLoggedIn"])
+    ...mapState(["isUserLoggedIn", "user"])
   },
   data() {
     return {
@@ -65,9 +65,8 @@ export default {
 
     try {
       this.bookmark = (
-        await BookmarksService.index({
-          songId: this.$store.state.route.params.songId,
-          userId: this.$store.state.user.id
+        await BookmarksService.bookmark({
+          songId: this.$store.state.route.params.songId
         })
       ).data;
     } catch (err) {
@@ -79,8 +78,7 @@ export default {
       try {
         this.bookmark = (
           await BookmarksService.post({
-            songId: this.song.id,
-            userId: this.$store.state.user.id
+            songId: this.song.id
           })
         ).data;
       } catch (err) {
